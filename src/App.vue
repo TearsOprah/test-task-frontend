@@ -1,5 +1,7 @@
 <template>
-  <InventoryPage />
+  <div id="app">
+    <InventoryPage />
+  </div>
 </template>
 
 <script>
