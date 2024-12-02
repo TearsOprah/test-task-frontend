@@ -1,7 +1,31 @@
-<template></template>
+<template>
+  <div class="inventory-page">
+    <div class="inventory-page__selected-inventory"></div>
+    <div class="inventory-page__inventory">
+      <ItemList
+        :items="leftItems"
+        :selected-items="selectedLeftItems"
+        @toggle="toggleLeftItem"
+        :title="this.$t('InventoryPage.ItemListUserTitle')"
+        :multi-select="true"
+        :limit="6"
+      />
+      <ItemList
+        :items="rightItems"
+        :selected-item="selectedRightItem"
+        @select="selectRightItem"
+        :title="this.$t('InventoryPage.ItemListForSelectTitle')"
+        :multi-select="false"
+      />
+    </div>
+  </div>
+</template>
 
 <script>
+import ItemList from '../components/ItemList.vue'
+
 export default {
+  components: { ItemList },
   data() {
     return {
       leftItems: [
@@ -26,6 +50,19 @@ export default {
       ],
       selectedLeftItems: [],
       selectedRightItem: null
+    }
+  },
+  methods: {
+    toggleLeftItem(item) {
+      const index = this.selectedLeftItems.findIndex((i) => i.id === item.id)
+      if (index !== -1) {
+        this.selectedLeftItems.splice(index, 1)
+      } else if (this.selectedLeftItems.length < 6) {
+        this.selectedLeftItems.push(item)
+      }
+    },
+    selectRightItem(item) {
+      this.selectedRightItem = item
     }
   }
 }
