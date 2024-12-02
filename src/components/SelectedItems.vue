@@ -1,7 +1,7 @@
 <template>
   <div class="selected-items">
     <h3>{{ title }}</h3>
-    <ul>
+    <ul class="selected-items__list">
       <li v-for="item in items" :key="item.id" class="selected-items__item">
         {{ item.name }}
       </li>
@@ -24,4 +24,17 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.selected-items {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.selected-items__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+</style>

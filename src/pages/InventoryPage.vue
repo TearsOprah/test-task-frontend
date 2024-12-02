@@ -77,3 +77,21 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.inventory-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+}
+.inventory-page__inventory,
+.inventory-page__selected-inventory {
+  display: flex;
+  gap: 20px;
+}
+
+.inventory-page__selected-inventory {
+  height: 200px;
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
   <div class="items">
     <h3>{{ title }}</h3>
-    <ul>
+    <ul class="items__list">
       <li
         v-for="item in items"
         :key="item.id"
@@ -66,3 +66,18 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.items {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.items__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+</style>
