@@ -1,6 +1,15 @@
 <template>
   <div class="inventory-page">
-    <div class="inventory-page__selected-inventory"></div>
+    <div class="inventory-page__selected-inventory">
+      <SelectedItems
+        :items="selectedLeftItems"
+        :title="this.$t('InventoryPage.SelectedUserItemTitle')"
+      />
+      <SelectedItems
+        :items="selectedRightItem ? [selectedRightItem] : []"
+        :title="this.$t('InventoryPage.SelectedItemTitle')"
+      />
+    </div>
     <div class="inventory-page__inventory">
       <ItemList
         :items="leftItems"
@@ -23,9 +32,10 @@
 
 <script>
 import ItemList from '../components/ItemList.vue'
+import SelectedItems from '../components/SelectedItems.vue'
 
 export default {
-  components: { ItemList },
+  components: { SelectedItems, ItemList },
   data() {
     return {
       leftItems: [
