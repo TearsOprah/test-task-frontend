@@ -6,6 +6,9 @@
         {{ item.name }}
       </li>
     </ul>
+    <span v-if="limit !== Infinity"
+      >{{ this.$t('InventoryPage.SelectedText') }}{{ items.length }}/{{ limit }}</span
+    >
   </div>
 </template>
 
@@ -19,6 +22,10 @@ export default {
     title: {
       type: String,
       default: null
+    },
+    limit: {
+      type: Number,
+      default: Infinity
     }
   }
 }

@@ -4,6 +4,7 @@
       <SelectedItems
         :items="selectedLeftItems"
         :title="this.$t('InventoryPage.SelectedUserItemTitle')"
+        :limit="6"
       />
       <SelectedItems
         :items="selectedRightItem ? [selectedRightItem] : []"
